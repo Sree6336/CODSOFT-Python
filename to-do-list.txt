@@ -1,0 +1,49 @@
+tasks = {}
+
+def display_tasks():
+    print("To-Do List:")
+    for task, status in tasks.items():
+        print(f"{task}: {status}")
+
+def add_task():
+    task = input("Enter task: ")
+    tasks[task] = "Processing..."
+    print("Task added successfully")
+
+def update_task():
+    task = input("Enter task to update: ")
+    if task in tasks:
+        status = input("Enter new status (processing/Done): ")
+        tasks[task] = status
+        print("Task updated successfully")
+    else:
+        print("Task not found")
+
+def delete_task():
+    task = input("Enter task to delete: ")
+    if task in tasks:
+        del tasks[task]
+        print("Task deleted successfully")
+    else:
+        print("Task not found!")
+
+while True:
+    print("To-Do List Application")
+    print("1. Display Tasks")
+    print("2. Add Task")
+    print("3. Update Task")
+    print("4. Delete Task")
+    print("5. Exit")
+    choice = input("Enter your choice: ")
+    if choice == "1":
+        display_tasks()
+    elif choice == "2":
+        add_task()
+    elif choice == "3":
+        update_task()
+    elif choice == "4":
+        delete_task()
+    elif choice == "5":
+        break
+    else:
+        print("Invalid choice. Please choose a valid option."
